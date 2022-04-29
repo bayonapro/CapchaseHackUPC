@@ -1,3 +1,4 @@
+
 for w in map.workers {
     // Logic to check worker placement
 }
