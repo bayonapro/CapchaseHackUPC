@@ -2,8 +2,8 @@ for w in map.workers {
     // Logic to check worker placement
 }
 
-for x in 0..50 {
-    for y in 0..50 {
+for x in 0..40 {
+    for y in 0..40 {
         if map[x][y] == Tile::EMPTY {
             // more logic
         }
@@ -25,13 +25,13 @@ for w in 1..8 {
 let quadrante = "capchase_putos_amos";
 
 for q in 0..8 {
-    if worker(q).x >= 25 && worker(q).y >= 25{
+    if worker(q).x >=20 && worker(q).y >=20{
         quadrante = "topright";
-    } else if worker(q).x <= 25 && worker(q).y <= 25{
+    } else if worker(q).x <=20 && worker(q).y <=20{
         quadrante = "botleft";
-    } else if worker(q).x >= 25 && worker(q).y <= 25{
+    } else if worker(q).x >=20 && worker(q).y <=20{
         quadrante = "topleft";
-    } else if worker(q).x >= 25 && worker(q).y <= 25{
+    } else if worker(q).x >=20 && worker(q).y <=20{
         quadrante = "botright";
     }
 }
@@ -46,7 +46,7 @@ for w in 0..8 {
             3 => worker(w).move_left(),
             4 => worker(w).move_up(),
         }
-        if worker(w).x <= 25 && worker(w).y <= 25 {
+        if worker(w).x <=20 && worker(w).y <=20 {
             let qtr1 = (rand() % 4).abs();
              switch qtr1 {
                 0 => worker(w).move_down(),
@@ -54,9 +54,10 @@ for w in 0..8 {
                 2 => worker(w).move_left(),
                 3 => worker(w).move_right(),
             }
-        }
+        }    
     }
 }
+
 
 for e in 0..8 {
     if quadrante == "topleft" {
@@ -68,7 +69,7 @@ for e in 0..8 {
             3 => worker(e).move_right(),
             4 => worker(e).move_up(),
         }
-        if worker(e).x >= 25 && worker(e).y <= 25 {
+        if worker(e).x >=20 && worker(e).y <=20 {
             let qtr1 = (rand() % 4).abs();
              switch qtr1 {
                 0 => worker(e).move_down(),
@@ -90,7 +91,7 @@ for r in 0..8 {
             3 => worker(r).move_right(),
             4 => worker(r).move_down(),
         }
-        if worker(r).x >= 25 && worker(r).y >= 25 {
+        if worker(r).x >=20 && worker(r).y >=20 {
             let qtr1 = (rand() % 4).abs();
              switch qtr1 {
                 0 => worker(r).move_down(),
@@ -99,7 +100,6 @@ for r in 0..8 {
                 3 => worker(r).move_right(),
             }
         }
-        
     }
 }
 
@@ -113,7 +113,7 @@ for t in 0..8 {
             3 => worker(t).move_right(),
             4 => worker(t).move_down(),
         }
-        if worker(t).x >= 25 && worker(t).y >= 25 {
+        if worker(t).x >=20 && worker(t).y >=20 {
             let qtr1 = (rand() % 4).abs();
              switch qtr1 {
                 0 => worker(t).move_down(),
