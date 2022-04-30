@@ -20,5 +20,5 @@ for w in 0..8 {
         3 => worker(w).move_left(),
     }
 
-    info(`worker ${w} finished`);
+    info(`pos ${worker(w).x}, ${worker(w).y}`)
 }
