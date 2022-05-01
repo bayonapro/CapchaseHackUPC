@@ -11,7 +11,7 @@ for x in 0..40 {
     }
 }
 
-for w in 1..8 {
+for w in 0..8 {
     info(`pos ${worker(w).x}, ${worker(w).y}`);
     let r = (rand() % 4).abs();
     switch r {
@@ -26,6 +26,7 @@ let quadrante = "capchase_putos_amos";
 
 for q in 0..8 {
     if worker(q).x >=20 && worker(q).y >=20{
+        info(`pos ${worker(q).x}, ${worker(q).y}`);
         quadrante = "topright";
     } else if worker(q).x <=20 && worker(q).y <=20{
         quadrante = "botleft";
@@ -35,8 +36,9 @@ for q in 0..8 {
         quadrante = "botright";
     }
 }
-
-for w in 0..8 {
+//---------------------------------------------------------------
+// TOP RIGHT MOVEMENTS
+for w in 0..6 {
     if quadrante == "topright" {
         let qtr = (rand() % 10).abs();
         switch qtr {
@@ -57,8 +59,23 @@ for w in 0..8 {
         }    
     }
 }
+// TOP RIGHT LURKERS
+for e in 6..8 {
+    if quadrante == "topright" {
+        let qtl = (rand() % 12).abs();
+        switch qtl {
+            0 => worker(e).move_down(),
+            1 => worker(e).move_left(),
+            2 => worker(e).move_up(),
+            3 => worker(e).move_right(),
+            4 => worker(e).move_right(),
+            5 => worker(e).move_up(),
+        }
+    }
+}
 
-
+//----------------------------------------------------------------
+// TOP RIGHT MOVEMENTS
 for e in 0..8 {
     if quadrante == "topleft" {
         let qtl = (rand() % 12).abs();
@@ -80,8 +97,23 @@ for e in 0..8 {
         }
     }
 }
-
-for r in 0..8 {
+// TOP RIGHT LURKERS
+for e in 6..8 {
+    if quadrante == "topleft" {
+        let qtl = (rand() % 12).abs();
+        switch qtl {
+            0 => worker(e).move_down(),
+            1 => worker(e).move_left(),
+            2 => worker(e).move_up(),
+            3 => worker(e).move_left(),
+            4 => worker(e).move_left(),
+            5 => worker(e).move_up(),
+        }
+    }
+}
+//----------------------------------------------------------------
+// BOTTOM LEFT MOVEMENTS
+for r in 0..6 {
     if quadrante == "botleft" {
         let qbl = (rand() % 12).abs();
         switch qbl {
@@ -102,8 +134,24 @@ for r in 0..8 {
         }
     }
 }
+// BOTTOM LEFT LURKERS
+for e in 6..8 {
+    if quadrante == "botleft" {
+        let qtl = (rand() % 12).abs();
+        switch qtl {
+            0 => worker(e).move_down(),
+            1 => worker(e).move_left(),
+            2 => worker(e).move_up(),
+            3 => worker(e).move_left(),
+            4 => worker(e).move_left(),
+            5 => worker(e).move_down(),
+        }
+    }
+}
 
-for t in 0..8 {
+//----------------------------------------------------------------
+// BOTTOM RIGHT MOVEMENTS
+for t in 0..6 {
     if quadrante == "botright" {
         let qbr = (rand() % 12).abs();
         switch qbr {
@@ -121,6 +169,20 @@ for t in 0..8 {
                 2 => worker(t).move_left(),
                 3 => worker(t).move_right(),
             }
+        }
+    }
+}
+// BOTTOM RIGHT LURKERS
+for e in 6..8 {
+    if quadrante == "botright" {
+        let qtl = (rand() % 12).abs();
+        switch qtl {
+            0 => worker(e).move_down(),
+            1 => worker(e).move_left(),
+            2 => worker(e).move_up(),
+            3 => worker(e).move_right(),
+            4 => worker(e).move_righ(),
+            5 => worker(e).move_up(),
         }
     }
 }
